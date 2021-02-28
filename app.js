@@ -94,6 +94,7 @@ function saveLocalTodos(todo) {
 }
 
 function getToDos() {
+    console.log('hello');
     let todos;
     if(!localStorage.getItem('todos')) {
         todos = []
