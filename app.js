@@ -91,15 +91,18 @@ function saveLocalTodos(todo) {
     }
     todos.push(todo);
     localStorage.setItem('todos',JSON.stringify(todos));
+    console.log(JSON.parse(localStorage.getItem('todos')));
 }
 
 function getToDos() {
     console.log('hello');
     let todos;
-    if(!localStorage.getItem('todos')) {
+    if(localStorage.getItem('todos') === null) {
         todos = []
+        console.log('null');
     } else {
         todos = JSON.parse(localStorage.getItem('todos'));
+        console.log(todos);
     }
     todos.forEach(function(todo){
         const todoDiv = document.createElement('div');
@@ -119,6 +122,7 @@ function getToDos() {
         trashButton.innerHTML='<i class="fa fa-trash"></i>';
         trashButton.classList.add("trash-btn");
         todoDiv.appendChild(trashButton);
+        todoList.appendChild(todoDiv);
     })
 }
 
